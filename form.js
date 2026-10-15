@@ -65,7 +65,53 @@
             }, 1500);
         });
     }
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
 
+// Use custom validation messages after JavaScript initializes.
+form.noValidate = true;
+
+function validateInputs() {
+    nameInput.value = nameInput.value.trim();
+    emailInput.value = emailInput.value.trim();
+
+    let nameMessage = "";
+    let emailMessage = "";
+
+    if (nameInput.value.length === 0) {
+        nameMessage = "Please enter your name.";
+    } else if (nameInput.value.length > 80) {
+        nameMessage = "Your name must contain at most 80 characters.";
+    }
+
+    if (emailInput.value.length === 0) {
+        emailMessage = "Please enter your email.";
+    } else if (emailInput.value.length > 254) {
+        emailMessage = "Your email must contain at most 254 characters.";
+    } else if (emailInput.validity.typeMismatch) {
+        emailMessage = "Please enter a valid email address.";
+    }
+
+    nameError.textContent = nameMessage;
+    emailError.textContent = emailMessage;
+
+    nameInput.setAttribute("aria-invalid", String(Boolean(nameMessage)));
+    emailInput.setAttribute("aria-invalid", String(Boolean(emailMessage)));
+
+    if (nameMessage || emailMessage) {
+        statusElement.textContent = "Please correct the highlighted fields.";
+
+        if (nameMessage) {
+            nameInput.focus();
+        } else {
+            emailInput.focus();
+        }
+
+        return false;
+    }
+
+    return true;
+}
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -74,18 +120,12 @@
             return;
         }
 
-        if (!form.reportValidity()) {
+        if (!validateInputs()) {
             return;
         }
 
         const submittedName = nameInput.value.trim();
         const submittedEmail = emailInput.value.trim();
-
-        if (submittedName.length === 0) {
-            statusElement.textContent = "Please enter your name.";
-            nameInput.focus();
-            return;
-        }
 
         transitionTo("submitting", "Submitting your simulated signup...");
 
