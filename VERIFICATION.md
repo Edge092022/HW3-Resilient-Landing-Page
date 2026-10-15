@@ -26,14 +26,13 @@
 | Past deadline | Displayed zero units and the launch-arrived message. | Pass |
 | Missing UTC suffix | Rejected the timestamp without Z. | Pass |
 | Invalid calendar date | Rejected February 30. | Pass |
+| Countdown breakpoint recovery | After pausing JavaScript for approximately 10 seconds, the countdown caught up with elapsed time on resume. | Pass |
 ## Remaining checks
 
 These checks have not yet been reported as completed:
 
 - UTC timezone invariance.
-- Countdown recovery after a JavaScript breakpoint pause.
 - Near-future expiry and interval cleanup.
-- Past and invalid deadline handling.
 - Final keyboard and accessibility review.
 
 ## Limitations
