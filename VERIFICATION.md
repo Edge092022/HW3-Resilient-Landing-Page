@@ -27,12 +27,12 @@
 | Missing UTC suffix | Rejected the timestamp without Z. | Pass |
 | Invalid calendar date | Rejected February 30. | Pass |
 | Countdown breakpoint recovery | After pausing JavaScript for approximately 10 seconds, the countdown caught up with elapsed time on resume. | Pass |
+| UTC timezone invariance | Switching between Tokyo and San Francisco did not shift the countdown by hours; only elapsed time affected the remaining duration. | Pass |
+| Countdown expiry | A near-future deadline reached zero and displayed the launch-arrived message. | Pass |
+| Interval cleanup | After expiry, a breakpoint in renderCountdown was not hit during approximately three seconds with the tab visible. | Pass |
 ## Remaining checks
 
 These checks have not yet been reported as completed:
-
-- UTC timezone invariance.
-- Near-future expiry and interval cleanup.
 - Final keyboard and accessibility review.
 
 ## Limitations
