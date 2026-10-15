@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A resilient launch page with a UTC countdown and signup form.">
+    <title>LaunchPad — Coming Soon</title>
+</head>
+<body>
+    <a href="#main-content">Skip to main content</a>
+
+    <header>
+        <p>LaunchPad</p>
+        <nav aria-label="Primary">
+            <a href="#launch">Launch</a>
+            <a href="#signup">Join the waitlist</a>
+        </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <section id="launch" aria-labelledby="launch-heading">
+            <p>Something new is coming</p>
+            <h1 id="launch-heading">Get ready for our next launch.</h1>
+            <p>Join our waitlist for updates about the upcoming release.</p>
+
+            <h2>Launch countdown</h2>
+            <p>
+                Launch time:
+                <time id="launch-deadline" datetime="2026-12-31T17:00:00Z">
+                    December 31, 2026 at 17:00 UTC
+                </time>
+            </p>
+
+            <dl id="countdown" aria-label="Time remaining until launch">
+                <dt>Days</dt>
+                <dd id="countdown-days">--</dd>
+
+                <dt>Hours</dt>
+                <dd id="countdown-hours">--</dd>
+
+                <dt>Minutes</dt>
+                <dd id="countdown-minutes">--</dd>
+
+                <dt>Seconds</dt>
+                <dd id="countdown-seconds">--</dd>
+            </dl>
+
+            <p id="countdown-status">
+                The countdown will become available when JavaScript is added.
+            </p>
+        </section>
+
+        <section id="signup" aria-labelledby="signup-heading">
+            <h2 id="signup-heading">Join the waitlist</h2>
+            <p id="form-description">
+                This classroom demo will simulate a signup.
+                No information will be sent to a server.
+            </p>
+
+            <form id="signup-form" aria-describedby="form-description">
+                <fieldset>
+                    <legend>Your details</legend>
+
+                    <p>
+                        <label for="name">Name (required)</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            maxlength="80"
+                            aria-describedby="name-error"
+                            required
+                        >
+                        <span id="name-error"></span>
+                    </p>
+
+                    <p>
+                        <label for="email">Email (required)</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            maxlength="254"
+                            aria-describedby="email-error"
+                            required
+                        >
+                        <span id="email-error"></span>
+                    </p>
+
+                    <button id="submit-button" type="submit" disabled>
+                        Join the waitlist
+                    </button>
+                </fieldset>
+
+                <p id="form-status" role="status" aria-atomic="true">
+                    Signup is unavailable until JavaScript is added.
+                </p>
+            </form>
+
+            <noscript>
+                <p>JavaScript is required for the countdown and signup demo.</p>
+            </noscript>
+        </section>
+    </main>
+
+    <footer>
+        <p>LaunchPad — HW3 classroom demo.</p>
+    </footer>
+</body>
+</html>
