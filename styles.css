@@ -1,0 +1,250 @@
+:root {
+    color-scheme: light;
+    --page: #f3f5fc;
+    --surface: #ffffff;
+    --text: #17213b;
+    --muted: #475569;
+    --primary: #4338ca;
+    --primary-hover: #3730a3;
+    --border: #64748b;
+    --focus: #9a3412;
+    --error: #b91c1c;
+    --success: #166534;
+    --radius: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 1rem;
+}
+
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+body > a:first-child {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    padding: 0.75rem 1rem;
+    transform: translateY(-200%);
+    background: var(--surface);
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+}
+
+body > a:first-child:focus {
+    transform: translateY(0);
+}
+
+header,
+main,
+footer {
+    width: min(100% - 2rem, 70rem);
+    margin-inline: auto;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-block: 1.5rem;
+}
+
+header > p {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+}
+
+main {
+    display: grid;
+    gap: 1.5rem;
+    padding-block: 1rem 2rem;
+}
+
+section {
+    min-width: 0;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+h1,
+h2 {
+    line-height: 1.2;
+}
+
+h1 {
+    margin-block: 1rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+section > p,
+footer {
+    color: var(--muted);
+}
+
+time {
+    font-weight: 600;
+}
+
+#countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.25rem 0.5rem;
+    margin-block: 1.5rem;
+    text-align: center;
+}
+
+#countdown dt {
+    grid-row: 2;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+#countdown dd {
+    grid-row: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0.75rem 0.25rem;
+    background: var(--page);
+    border-radius: 0.5rem;
+    color: var(--primary);
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--text);
+}
+
+input[aria-invalid="true"] {
+    border-color: var(--error);
+}
+
+#name-error,
+#email-error {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--error);
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+button {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    background: var(--primary);
+    color: var(--surface);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: var(--primary-hover);
+}
+
+button:disabled {
+    background: var(--muted);
+    cursor: not-allowed;
+}
+
+#form-status {
+    min-height: 3.2em;
+    overflow-wrap: anywhere;
+}
+
+#signup-form[data-state="success"] #form-status {
+    color: var(--success);
+}
+
+#signup-form[data-state="error"] #form-status {
+    color: var(--error);
+}
+
+footer {
+    padding-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 56rem) {
+    main {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        align-items: start;
+    }
+}
