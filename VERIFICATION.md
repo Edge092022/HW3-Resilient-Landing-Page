@@ -30,11 +30,9 @@
 | UTC timezone invariance | Switching between Tokyo and San Francisco did not shift the countdown by hours; only elapsed time affected the remaining duration. | Pass |
 | Countdown expiry | A near-future deadline reached zero and displayed the launch-arrived message. | Pass |
 | Interval cleanup | After expiry, a breakpoint in renderCountdown was not hit during approximately three seconds with the tab visible. | Pass |
+| Keyboard navigation | Focus was visible; the skip-link worked with Enter; valid form submission worked with Enter. | Pass |
 ## Remaining checks
-
-These checks have not yet been reported as completed:
-- Final keyboard and accessibility review.
-
+Keyboard checks are complete. A full assistive-technology accessibility audit was not performed.
 ## Limitations
 
 The form uses a local simulated request. No signup data is sent to a server.

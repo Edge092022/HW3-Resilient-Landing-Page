@@ -65,7 +65,7 @@ See VERIFICATION.md for observed results and outstanding checks.
 AI assistance was requested separately for planning, HTML, CSS,
 countdown behavior, form states, and validation.
 
-AI conversation link: TODO — insert the actual conversation link.
+AI conversation link: https://chatgpt.com/share/6ad0cdcb-dd4c-83ec-9f4f-ebc3d93338f9
 
 ## Known limitations
 
